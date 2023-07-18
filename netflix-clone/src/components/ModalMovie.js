@@ -12,7 +12,7 @@ export default function ModalMovie({ handleShow, handleClose, show, modalData, c
         setComment(userComment);
         commentHandler(newData, newData.id);
     }
-
+    console.log(comment);
     async function handelAddFav(e) {
         e.preventDefult();
         let url = `${process.env.REACT_APP_SERVER_URL}/addFavMovie`;
@@ -21,7 +21,7 @@ export default function ModalMovie({ handleShow, handleClose, show, modalData, c
             year: modalData.release_data,
             Image: modalData.Image,
             overview: modalData.overview,
-            comment: comment
+            comment: modalData.comment
         };
         let response = await fetch(url, {
             method: 'POST',
